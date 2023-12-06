@@ -1,0 +1,40 @@
+/* Style for the data container */
+*{
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    background-color: #191919;
+}
+.data {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+  }
+  
+  /* Style for the list items */
+  ul {
+    list-style: none;
+    padding: 0;
+    background-color: #333;
+  }
+  
+  li {
+    background-color: #191919;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Style for the match data */
+  li span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Style for the status */
+  li .status {
+    color: #ff5722; /* You can change the color to your preference */
+  }
+  

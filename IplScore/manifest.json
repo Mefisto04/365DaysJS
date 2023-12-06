@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "IPL Score",
+    "version": "1.0",
+    "description": "show ipl match info",
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "IPL Score"
+    }
+  }
+  
