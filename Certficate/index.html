@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Generator</title>
+  <script src="https://unpkg.com/pdf-lib"></script>
+</head>
+<body>
+  <button onclick="generateCertificates()">Generate Certificates</button>
+
+  <script>
+    async function generateCertificates() {
+      const certificatePath = 'cert.pdf';
+      const csvPath = 'certf.csv';
+      const certificateBytes = await fetch(certificatePath).then(response => response.arrayBuffer());
+      const csvData = await fetch(csvPath).then(response => response.text());
+      const rows = csvData.split('\n').map(row => row.split(','));
+      for (const row of rows) {
+        const [name, email, rank] = row;
+
+        const pdfDoc = await PDFLib.PDFDocument.load(certificateBytes);
+        const page = pdfDoc.getPage(0);
+        const fontSize = 12;
+        const text = `Name: ${name}\nEmail: ${email}\nRank: ${rank}`;
+        const x = 230;
+        const y = 250;
+        page.drawText(text, { x, y, fontSize });
+        const modifiedPdfBytes = await pdfDoc.save();
+        saveAs(new Blob([modifiedPdfBytes], { type: 'application/pdf' }), `${name}_Certificate.pdf`);
+      }
+    }
+    function saveAs(blob, filename) {
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+  </script>
+</body>
+</html>
