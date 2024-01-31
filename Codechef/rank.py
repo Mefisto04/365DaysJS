@@ -4,7 +4,6 @@ import csv
 
 def get_user_data(profile_url):
     response = requests.get(profile_url)
-
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
 
