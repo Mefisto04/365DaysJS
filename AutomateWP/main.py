@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
 import schedule
-
 group_name = 'Your Group Name'
 message = 'Hello, this is an automated message!'
 
