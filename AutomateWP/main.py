@@ -5,7 +5,6 @@ from datetime import datetime
 import schedule
 group_name = 'Your Group Name'
 message = 'Hello, this is an automated message!'
-
 def send_whatsapp_message():
     driver_path = '/path/to/your/chromedriver'
     driver = webdriver.Chrome(executable_path=driver_path)
