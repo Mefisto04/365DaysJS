@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fileInput.addEventListener('change', handleFileSelect);
 });
-
 function handleFileSelect(event) {
     const fileInput = event.target;
     const file = fileInput.files[0];
